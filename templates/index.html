@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send a WA Web Message</title>
+</head>
+<style>
+    body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(#003973, #E5E5BE);
+    }
+
+    .container {
+        padding: 20px;
+        display: flex;
+        justify-content: space-evenly;
+        flex-direction: column;
+        height: 580px;
+        width: 300px;
+        border: 2px solid skyblue;
+        text-align: center;
+        background-color: white;
+        box-shadow: 0 0 10px 10px skyblue;
+    }
+
+    .code-num{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    button {
+        padding: 8px;
+        border: 1px solid grey;
+        outline: none;
+        border-radius: 10px;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        cursor: pointer;
+    }
+
+    .time-input{
+        padding: 2px;
+        border: 1px solid grey;
+        width: 80px;
+    }
+    .time{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        margin-top: 5px;
+    }
+    ::placeholder{
+        font-size: 10px;
+        text-align: center;
+    }
+    #number-input{
+        padding: 4px;
+        border-radius: 1px solid grey;
+    }
+    textarea{
+        height: 100px;
+        resize: none;
+        margin-top: 5px;
+    }
+    h2{
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 18px;
+    }
+    .img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .mainImg{
+        height: 200px;
+        width: 200px;
+    }
+    p{
+        font-family:Arial, Helvetica, sans-serif;
+        color: #999;
+    }
+    #sent-success{
+        color: blue;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+</style>
+
+<body>
+    <form class="container" method="POST" action="/SendWA">
+        <h2>Send a WA message</h2>
+        <div class="img">
+            <img class="mainImg" src="../static/static.png" alt="image">
+        </div>
+        <div class="code-num">
+            <select name="countryCode" id="countryCode">
+                <option value="india">India</option>
+            </select>
+            <input id="number-input" name="num" type="text" placeholder="Enter mobile number">
+        </div>
+        <textarea name="msg" id="msg" cols="30" rows="10" placeholder="Enter your message"></textarea>
+        <div class="time">
+            <input class="time-input" type="text" name="hour" placeholder="Enter hour">
+            <input class="time-input" type="text" name="minute" placeholder="Enter minute">
+            <input class="time-input" type="text" name="second" placeholder="Enter wait time">
+        </div>
+        <p id="sent-success">{{status}}</p>
+        <button type="submit">Send Message</button>
+    </form>
+</body>
+
+</html>
